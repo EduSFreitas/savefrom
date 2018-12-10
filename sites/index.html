@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://en.savefrom.net/ -->
+<html lang="en" class="en  js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>[Official] savefrom: Free YouTube video downloader, download YouTube videos online fast!</title>
+  <meta name="description" content="Free and fast online YouTube downloader to download YouTube videos easily at one click! The best YouTube Downloader supporting also vimeo, Facebook and Dailymotion video Download and much more!">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./home_files/jquery.min.js"></script>
+
+
+  <link rel="shortcut icon" href="https://en.savefrom.net/favicon.ico">
+  <link rel="image_src" href="https://en.savefrom.net/img/icon_100.png">
+
+    <link rel="stylesheet" href="./home_files/styles.css">
+  
+  <!--[if lte IE 9]>
+  <link rel="stylesheet" href="/css/ie_1.1.css?v=2">
+  <![endif]-->
+
+  <meta name="verify-v1" content="ub1H7kYJnwqYG8F1I+HOcbvOZ1ZorzzYgei/UVDCJkY=">
+
+  <meta name="yandex-verification" content="50aeecc20b39dade">
+
+  <link rel="canonical" href="https://en.savefrom.net/">
+
+<style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
+<body class="">
+<!--Error message for IE 6-->
+<!--[if lt IE 7]>
+<p class=chromeframe>Your browser is <strong>ancient!</strong> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+<![endif]-->
+<!--/Error message for IE 6-->
+
+  <!--Header-->
+  <header class="header header_v2">
+    <div class="page-width-inner g-row_inline">
+      <div class="header__left g-col c3">
+        <span class="menu-btn menu-btn_v2"></span>
+        <a name="logo" class="logo" href="/">SaveFrom.wang</a>
+      </div>
+              <div id="nav_top" class="g-col c9">
+          <div class="nav-top-2 right">
+              <a href="/download-youtube-mp3.html" class="nav-top-2__item">YouTube To MP3</a>
+              <a href="/download-video-online.html" class="nav-top-2__item">Download Videos</a>
+              <a href="/help.html" class="nav-top-2__item">Help</a>          </div>
+        </div>
+          </div>
+  </header>
+        
+<div id="main" class="main-block main-block_v2">
+      <div class="downloader-block">
+        <div class="open-link-form-all-block open-link-form-new">
+          <div class="main-form-box">
+            <div class="main-form-box-left"><div class="sk-wave" style="display: none;">
+              <div class="sk-rect sk-rect1"></div>
+              <div class="sk-rect sk-rect2"></div>
+              <div class="sk-rect sk-rect3"></div>
+              <div class="sk-rect sk-rect4"></div>
+              <div class="sk-rect sk-rect5"></div>
+              </div><div id="link-form-new-cont">
+                <div class="downloader-container">
+    <div class="wrapper clearfix">
+        <div class="downloader-container">
+            <h1 class="downloader-container-title" style="font-size:30px; margin:30px 0px;text-align: center">Download YouTube video online just inset a link!</h1>
+            <div class="downloader-2">
+
+                <!--main form-->
+                <form class="sf-form link-form" target="sf_frame" id="sf_form">
+                    <div class="l-box">
+                        <div class="tarea-wrap">
+                            <input type="text" name="sf_url" value="" autofocus="" placeholder="Just insert a link" onfocus="if(this.value &amp;&amp; this.select){this.select()}" id="sf_url">
+                            <a href="https://en.savefrom.net/#" class="clear-btn"></a>
+                        </div>
+                    </div>
+                    <div class="r-box">
+                        <button type="button" name="sf_submit" class="submit" id="sf_submit"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="services clearfix"></div>
+                </form>
+                <!--/main form-->
+            </div>
+        </div>
+
+
+    </div>
+</div>
+              </div>
+
+            </div>
+            <div class="main-form-box-right" style="display:none"></div>
+          </div>
+        </div>
+        
+                <div class="downloader-2 downloader-2-part2">
+				<div id="sf_indicator_box" style="display:none"><span id="sf_indicator"><img src="../img/busy.gif" alt="..."></span></div>
+
+          <div id="sf_multi_form_box"></div>
+          <div id="sf_multi_result"></div>
+          <!--result-->
+          
+		  
+		  <div id="sf_result">
+
+        </div>
+        <script>
+            $('.menu-btn_v2').click(function(){
+                if($('#nav_top').hasClass('active')) {
+                    $('#nav_top').removeClass('active');
+                }
+                else {
+                    $('#nav_top').addClass('active');
+                }
+            });
+
+            $('#sf_submit').click(function(){
+                $('#sf_result').html('');
+                var url = $('#sf_url').val();
+                if(url==''){
+                    $('#sf_result').html('<div class="result-box simple "><div class="message">Error：Please insert a link.</div></div>');
+                    return false;
+                }
+                $('#sf_indicator_box').show();
+                getDownloadLists(url);
+            });
+
+            function getDownloadLists(url){
+                var actionServers = '/api.php';
+                $.post(actionServers, {url:url}, function(data){
+                    $('#sf_indicator_box').hide();
+                    if(data){
+                        $('#sf_result').html(data.toString());
+                    }
+                    else{
+                        $('#sf_result').html('<div class="result-box simple "><div class="message">This video can\'t be downloaded.</div></div>');
+                    }
+                });
+            }
+        </script>
+
+        <div id="modal-container" class="modal-container center-popup-cont">
+          <div class="shade"></div>
+          <div class="popup-content">
+            <div class="modal-text-cont-for-js"></div>
+            <div class="close-modal close-modal-icon"></div>
+          </div>
+        </div>
+
+                  
+
+<div class="install-now" id="js-install-now"></div>
+
+    <div class="site-info-tabs" style="margin-top:60px;">
+      <div class="r-tabs-box">
+        <!-- tab 1 -->
+		<h2 style="text-align:center;font-size:30px;">Supported Sites</h2>
+        <div id="tab1" class="r-tab-content active">
+		  <ul class="supported-services_v2 supported-services">
+			<li class="fir2 fir3"><a href="/" class="favicon icon-youtube_com">youtube.com</a></li>
+			<li class=""><span class="favicon icon-break_com">break.com</span></li>
+			<li class="fir2"><span class="favicon icon-dailymotion_com">dailymotion.com</span></li>
+			<li class="fir3"><span class="favicon icon-vimeo_com">vimeo.com</span></li>
+			<li class="fir2"><span class="favicon icon-sevenload_com">sevenload.com</span></li>
+			<li class=""><span class="favicon icon-mail_ru">mail.ru</span></li>
+			<li class="fir2 fir3"><span class="favicon icon-smotri_com">smotri.com</span></li>
+			<li class=""><span class="favicon icon-yandex_video">yandex.video</span></li>
+			<li class="fir2"><span class="favicon icon-tvigle_ru">tvigle.ru</span></li>
+		  </ul>
+		  <ul class="supported-services_v2 supported-services">
+			<li class="fir2 fir3"><span class="favicon icon-facebook_com">facebook.com</span></li>
+			<li class=""><span class="favicon icon-livejournal_com">livejournal.com</span></li>
+			<li class="fir2"><span class="favicon icon-vk_com">vk.com</span></li>
+			<li class="fir3"><span class="favicon icon-odnoklassniki_ru tooltip" title="Requires SaveFrom.wang helper extension">odnoklassniki.ru</span></li>
+			<li class="fir2"><span class="favicon icon-soundcloud_com">soundcloud.com</span></li>
+			<li class=""><span class="favicon icon-liveinternet_ru">liveinternet.ru</span></li>
+			<li class="fir2 fir3"><span class="favicon icon-veojam_com">veojam.com</span></li>
+			<li class=""><span class="favicon icon-1tv_ru">1tv.ru</span></li>
+			<li class="fir2"><span class="favicon icon-rutv_ru">rutv.ru</span></li>
+			<li class="fir3"><span class="favicon icon-ntv_ru">ntv.ru</span></li>
+			<li class="fir2"><span class="favicon icon-vesti_ru">vesti.ru</span></li>
+			<li class=""><span class="favicon icon-mreporter_ru">mreporter.ru</span></li>
+			<li class="fir2 fir3"><span class="favicon icon-autoplustv_ru">autoplustv.ru</span></li>
+			<li class=""><span class="favicon icon-russiaru_net">russiaru.net</span></li>
+			<li class="fir2"><span class="favicon icon-a1tv_ru">a1tv.ru</span></li>
+		</ul>        
+		</div>
+      </div>
+    </div>
+	
+	<div class="site-info-tabs" style="margin-top:60px;">
+      <div class="r-tabs-box">
+        <!-- tab 1 -->
+		<h3 style="text-align:center;font-size:26px;">Download Video Solutions</h3>
+        <div id="tab2" class="r-tab-content active" style="display:inline-block">
+		  <span><a href="/download-youtube-mp3.html"><img src="/img/youtube-mp3.png" width="32%"/></a></span>
+		  <span><a href="/download-video-online.html"><img src="/img/download-video.png" width="32%"/></a></span>
+		  <span><a href="/"><img src="/img/youtube-video.png" width="32%"/></a></span>
+		</div>
+      </div>
+    </div>
+	
+	<div class="site-info-tabs" style="margin-top:60px;">
+      <div class="r-tabs-box">
+        <!-- tab 1 -->
+		<h3 style="text-align:center;font-size:26px;">How to download YouTube Videos Online</h3>
+        <div id="tab3" class="r-tab-content active">
+		  <ul>
+			<li>Go To Savefrom Online Website, on the top of page, you will find an area to insert a link.</li>
+			<li>Copy a YouTube video URL to the input field and press Enter or click the "Download" button next to the input field.</li>
+			<li>Savefrom will show what you want, choose the video quality and video format, then click "download" button.</li>
+			<li>Just few mintes, the YouTube Video will be downloaded on you computer.</li>
+		  </ul>
+		</div>
+      </div>
+    </div>
+	
+	<div class="site-info-tabs" style="margin-top:60px;">
+      <div class="r-tabs-box">
+        <!-- tab 1 -->
+		<h3 style="text-align:center;font-size:26px;">About Savefrom</h3>
+        <div id="tab4" class="r-tab-content active">
+		  <p>Savefrom Youtube Video Downloader is a free web application that allows you to download videos from streaming online websites like YouTube, Facebook, Twitch.Tv, Vimeo, Dailymotion and many more. All you need is the URL of the page that has the video you want to download. Enter it in the textbox above and simply click 'Download'. SaveFrom will then fetch download links in all possible formats that the particular site provides.</p>
+		</div>
+      </div>
+    </div>
+
+    </div>
+    <!--/content-->
+</div> <!--/main-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117944047-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-117944047-1');
+</script>
+
+
+
+  <!--Footer-->
+    <footer class="footer_v2">
+        <div class="wrapper clearfix">
+            <p class="copyright" dir="ltr">© 2008-2018, SaveFrom.wang</p>
+            <ul class="f-nav f-nav_v2">
+                <li><a href="/" class="active">Main page</a></li><li><a href="/help.html">FAQ</a></li><li><a href="/contact.html">Contact</a></li><li><a href="https://en.savefrom.net/terms.html" rel="external nofollow">Terms of Service</a></li><li><a href="https://en.savefrom.net/EULA.html"  rel="external nofollow">EULA</a></li><li><a href="https://en.savefrom.net/privacy-policy.html"  rel="external nofollow">PP</a></li>      </ul>
+        </div>
+    </footer>
+
+
+</body></html>

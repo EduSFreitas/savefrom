@@ -1,0 +1,54 @@
+﻿<div class="media-result">
+  <div class="result-box video" data-hid="101" style="">
+	<div class="thumb-box thumb-272 ">
+	  <a href="#" class="clip" >
+		
+		  <img src="__DOWNLOADIMG__" class="thumb">
+		
+		
+		  <span class="play-btn"></span>
+		
+	  </a>
+	</div>
+	<div class="info-box">
+	  <div class="meta">
+  
+	
+		<div class="row title" title="__TITLE__">__TITLE__</div>
+	
+  
+	  </div>
+	  <div class="link-box">
+		<div class="def-btn-box"><a class="link link-download subname ga_track_events download-icon" download="__FILENAME__" data-quality="720" data-type="mp4" href="__DOWNLOADLINK__">Download</a></div>
+		<div class="drop-down-box">
+		  <div class="def-btn-name">__FROMAT__ <span class="subname">__QUALITY__</span></div>
+		  <div class="list" id="list">
+			<div class="links">
+			  <div class="main">
+				<div class="link-group">
+				__DOWNLOADITEMS__
+				</div>
+			  </div>
+			  
+			</div>
+		  </div>
+		</div><div class="def-file-info"></div>
+	  </div>
+	</div>
+  </div>
+</div>
+</div>
+<script>
+	$(document).click(function(){
+		$('#list').hide();
+	});
+	$('.drop-down-box').click(function(e){
+		var theEvent = window.event || e;
+		if(document.all){  //ie识别
+			theEvent.cancelBubble=true;
+		}else{
+			theEvent.stopPropagation();
+		}
+		$('#list').show();
+	});
+</script>
